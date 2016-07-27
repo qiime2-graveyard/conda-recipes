@@ -1,0 +1,79 @@
+package:
+  name: ipymd
+  version: "0.1.2"
+
+source:
+  fn: ipymd-0.1.2.tar.gz
+  url: https://files.pythonhosted.org/packages/af/6e/58359f1912ab368eed5306dcb785b55a4df8a9856196a4b9a3324f82abfb/ipymd-0.1.2.tar.gz
+  md5: ed4d8ff1c17ef2e272055c96c6f2af6e
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+build:
+  # noarch_python: True
+  preserve_egg_dir: True
+  entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - ipymd = ipymd:main
+    #
+    # Would create an entry point called ipymd that calls ipymd.main()
+
+    - ipymd=ipymd.core.scripts:main
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyyaml
+
+  run:
+    - python
+    - setuptools
+    - pyyaml
+    - traitlets
+    - ipython
+    - ipykernel
+    - notebook
+
+test:
+  # Python imports
+  imports:
+    - ipymd
+    - ipymd.core
+    - ipymd.core.tests
+    - ipymd.ext
+    - ipymd.formats
+    - ipymd.formats.tests
+    - ipymd.lib
+    - ipymd.lib.tests
+    - ipymd.utils
+    - ipymd.utils.tests
+
+  commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+    - ipymd --help
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/rossant/ipymd
+  license: BSD License
+  summary: 'Use the IPython notebook as an interactive Markdown editor'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
