@@ -1,0 +1,65 @@
+package:
+  name: python-frontmatter
+  version: "0.2.1"
+
+source:
+  fn: python-frontmatter-0.2.1.tar.gz
+  url: https://pypi.python.org/packages/8e/4a/0e3c1514ac22956c5b665b9aeda0d646129df21e4ca63e6c532ff86ae8a6/python-frontmatter-0.2.1.tar.gz#md5=7bedf612865302db33c92c3abc9a8520
+  md5: 7bedf612865302db33c92c3abc9a8520
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - python-frontmatter = python-frontmatter:main
+    #
+    # Would create an entry point called python-frontmatter that calls python-frontmatter.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyyaml
+    - six
+
+  run:
+    - python
+    - pyyaml
+    - six
+
+test:
+  # Python imports
+  imports:
+    - frontmatter
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/eyeseast/python-frontmatter
+  license: MIT License
+  summary: 'Parse and manage posts with YAML frontmatter'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
