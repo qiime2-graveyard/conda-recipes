@@ -1,0 +1,65 @@
+package:
+  name: jinja2-time
+  version: "0.2.0"
+
+source:
+  fn: jinja2-time-0.2.0.tar.gz
+  url: https://pypi.python.org/packages/de/7c/ee2f2014a2a0616ad3328e58e7dac879251babdb4cb796d770b5d32c469f/jinja2-time-0.2.0.tar.gz
+  md5: b6ebc4ecac395a18982532f4c2869c06
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - jinja2-time = jinja2-time:main
+    #
+    # Would create an entry point called jinja2-time that calls jinja2-time.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - jinja2
+    - arrow
+
+  run:
+    - python
+    - jinja2
+    - arrow
+
+test:
+  # Python imports
+  imports:
+    - jinja2_time
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/hackebrot/jinja2-time
+  license: MIT License
+  summary: 'Jinja2 Extension for Dates and Times'
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
