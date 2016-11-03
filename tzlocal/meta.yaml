@@ -1,0 +1,64 @@
+package:
+  name: tzlocal
+  version: "1.3"
+
+source:
+  fn: tzlocal-1.3.tar.gz
+  url: https://pypi.python.org/packages/d3/64/e4b18738496213f82b88b31c431a0e4ece143801fb6771dddd1c2bf0101b/tzlocal-1.3.tar.gz
+  md5: 3cb544b3975b59f91a793850a072d4a8
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - tzlocal = tzlocal:main
+    #
+    # Would create an entry point called tzlocal that calls tzlocal.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pytz
+
+  run:
+    - python
+    - pytz
+
+test:
+  # Python imports
+  imports:
+    - tzlocal
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://github.com/regebro/tzlocal
+  license: CC0 1.0 Universal
+  summary: 'tzinfo object for the local timezone'
+  license_family: Other
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
