@@ -1,0 +1,85 @@
+package:
+  name: qiime2
+  version: "2017.2.0"
+
+source:
+  git_url: https://github.com/qiime2/qiime2.git
+  git_rev: 2017.2.0
+
+build:
+  # noarch_python: True
+  preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - qiime2 = qiime2:main
+    #
+    # Would create an entry point called qiime2 that calls qiime2.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - pyyaml
+    - decorator
+    - pandas
+    - tzlocal
+    - python-dateutil
+
+  run:
+    - python
+    - setuptools
+    - pyyaml
+    - decorator
+    - pandas
+    - tzlocal
+    - python-dateutil
+
+test:
+  # Python imports
+  imports:
+    - qiime2
+    - qiime2.core
+    - qiime2.core.archive
+    - qiime2.core.archive.format
+    - qiime2.core.archive.format.tests
+    - qiime2.core.archive.tests
+    - qiime2.core.testing
+    - qiime2.core.tests
+    - qiime2.core.type
+    - qiime2.core.type.tests
+    - qiime2.plugin
+    - qiime2.plugin.model
+    - qiime2.plugin.model.tests
+    - qiime2.plugin.tests
+    - qiime2.sdk
+    - qiime2.sdk.tests
+    - qiime2.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://qiime2.org
+  license: BSD-3-Clause
+  #summary: Summary of the package
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

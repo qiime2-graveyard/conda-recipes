@@ -1,0 +1,84 @@
+package:
+  name: q2-types
+  version: "2017.2.0"
+
+source:
+  git_url: https://github.com/qiime2/q2-types.git
+  git_rev: 2017.2.0
+build:
+  # noarch_python: True
+  preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - q2-types = q2-types:main
+    #
+    # Would create an entry point called q2-types that calls q2-types.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - scikit-bio
+    - qiime2 2017.2.*
+    - pandas
+    - biom-format >=2.1.5,<2.2.0
+    - ijson
+    - h5py
+
+  run:
+    - python
+    - setuptools
+    - scikit-bio
+    - qiime2 2017.2.*
+    - pandas
+    - biom-format >=2.1.5,<2.2.0
+    - ijson
+    - h5py
+
+test:
+  # Python imports
+  imports:
+    - q2_types
+    - q2_types.distance_matrix
+    - q2_types.distance_matrix.tests
+    - q2_types.feature_data
+    - q2_types.feature_data.tests
+    - q2_types.feature_table
+    - q2_types.feature_table.tests
+    - q2_types.ordination
+    - q2_types.ordination.tests
+    - q2_types.per_sample_sequences
+    - q2_types.per_sample_sequences.tests
+    - q2_types.sample_data
+    - q2_types.sample_data.tests
+    - q2_types.tree
+    - q2_types.tree.tests
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://qiime2.org
+  license: BSD-3-Clause
+  summary: 'Common QIIME 2 semantic types.'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

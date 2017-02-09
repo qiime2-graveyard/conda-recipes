@@ -1,0 +1,67 @@
+package:
+  name: q2-alignment
+  version: "2017.2.0"
+
+source:
+  git_url: https://github.com/qiime2/q2-alignment.git
+  git_rev: 2017.2.0
+build:
+  # noarch_python: True
+  preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - q2-alignment = q2-alignment:main
+    #
+    # Would create an entry point called q2-alignment that calls q2-alignment.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 1
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - qiime2 2017.2.*
+    - q2-types 2017.2.*
+    - scikit-bio
+    - mafft
+
+  run:
+    - python
+    - setuptools
+    - qiime2 2017.2.*
+    - q2-types 2017.2.*
+    - scikit-bio
+    - mafft
+
+test:
+  # Python imports
+  imports:
+    - q2_alignment
+    - q2_alignment.test
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+about:
+  home: https://qiime2.org
+  license: BSD-3-Clause
+  summary: 'Create and work with alignments in QIIME 2.'
+  license_family: BSD
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml
