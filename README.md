@@ -1,2 +1,3 @@
 # conda-recipes
-conda recipes for qiime2 packages
+
+conda recipes for QIIME 2 project dependencies
